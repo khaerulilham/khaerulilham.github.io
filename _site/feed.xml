@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2019-05-28T20:45:16+07:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">My Personal Blog</title><subtitle></subtitle><author><name>Khaerul Ilham</name></author><entry><title type="html">Mengatasi Systemd: ‘failed to remount’ Pada Proses Shutdown</title><link href="http://0.0.0.0:4000/tutorial/2018/06/06/post2.html" rel="alternate" type="text/html" title="Mengatasi Systemd: 'failed to remount' Pada Proses Shutdown" /><published>2018-06-06T11:17:32+07:00</published><updated>2018-06-06T11:17:32+07:00</updated><id>http://0.0.0.0:4000/tutorial/2018/06/06/post2</id><content type="html" xml:base="http://0.0.0.0:4000/tutorial/2018/06/06/post2.html">&lt;p&gt;Assalammu’ alaikum&lt;/p&gt;
+
+&lt;p&gt;Bismillah…&lt;/p&gt;
+
+&lt;p&gt;Baiklah pada postingan kedua ini saya akan berbagi sedikit tips tentang systemd. Hmm, mendengar namanya mungkin sudah banyak yang sudah kenal apalagi para Linuxer :v.&lt;/p&gt;
+
+&lt;p&gt;Entah itu yang &lt;a href=&quot;https://without-systemd.org/&quot;&gt;anti-systemd&lt;/a&gt; atau yang tak peduli dengan &lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Init&quot;&gt;init&lt;/a&gt;&lt;/em&gt; apa yang mereka pakai, khusunya saya :v.&lt;/p&gt;
+
+&lt;p&gt;Eiitz, tetapi saya tidak menghakimi anda untuk memilih &lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Init&quot;&gt;init&lt;/a&gt;&lt;/em&gt;. Bdw, ada yang pernah mengalami peringatan seperti ini pada saat shutdown/reboot?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;remount[1]: Failed to remount 'oldroot/… bla.bla&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;shutdown[1]: remounting  /oldroot/…..bla..bla&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/s-remount-error.png&quot; alt=&quot;s-remount-error.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Jika ada, apakah sudah terselesaikan? Atau mungkin masabodo dengan peringatan seperti itu? hehe…&lt;/p&gt;
+
+&lt;p&gt;Sebenarnya saya tidak tahu pasti apa penyebabnya, walapun itu &lt;em&gt;&lt;strong&gt;sepertinya&lt;/strong&gt;&lt;/em&gt; tidak berpengaruh terhadap kinerja sistem.&lt;/p&gt;
+
+&lt;p&gt;Lalu bagaimana cara menghilangkan peringatan tersebut? Caranya mudah saja, yaitu:&lt;/p&gt;
+&lt;h2 id=&quot;1-edit-pada-file-etcmkinitcpioconf&quot;&gt;1. Edit pada file: /etc/mkinitcpio.conf&lt;/h2&gt;
+&lt;p&gt;Kemudian tambahkan&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    shutdown pada HOOKS=(...)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;seperti pada gambar dibawah ini:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/mkinitcpio-2.png&quot; alt=&quot;mkinitcpio-2.png&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-kemudian-jalankan-command-mkinitcpio&quot;&gt;2. Kemudian jalankan command &lt;em&gt;mkinitcpio&lt;/em&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;~# mkinitcpio -p linux&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/mkinitcpio.png&quot; alt=&quot;&amp;quot;mkinitcpio.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-reboot-dan-reboot-lagi&quot;&gt;3. Reboot dan reboot lagi&lt;/h2&gt;
+&lt;p&gt;Reboot laptop/pc anda, memang belum ada efeknya pada reboot yang pertama, cobalah reboot kembali.&lt;/p&gt;
+
+&lt;p&gt;Itulah tutorial &lt;em&gt;&lt;strong&gt;“Mengatasi Systemd: failed to remount” Pada Proses Shutdown&lt;/strong&gt;&lt;/em&gt;, saya mencobanya pada distribusi arch linux. Semoga berhasil juga pada distribusi lainnya.&lt;/p&gt;</content><author><name>Khaerul Ilham</name></author><summary type="html">Assalammu’ alaikum</summary></entry><entry><title type="html">Mengatasi Brightness yang Ter-reset Setelah Suspend dan Booting pada Arch Linux</title><link href="http://0.0.0.0:4000/tutorial/2018/05/07/post1.html" rel="alternate" type="text/html" title="Mengatasi Brightness yang Ter-reset Setelah Suspend dan Booting pada Arch Linux" /><published>2018-05-07T03:50:32+07:00</published><updated>2018-05-07T03:50:32+07:00</updated><id>http://0.0.0.0:4000/tutorial/2018/05/07/post1</id><content type="html" xml:base="http://0.0.0.0:4000/tutorial/2018/05/07/post1.html">&lt;p&gt;Bismillah,&lt;/p&gt;
+
+&lt;p&gt;Baiklah pada postingan perdana ini saya akan berbagi sedikit tips &lt;a href=&quot;post1.html&quot;&gt;“Cara Mengatasi Brightness yang Ter-reset Setelah Suspend dan Booting pada Arch Linux”&lt;/a&gt;. Maksud dari judul tersebut yaitu, cara agar level kecerahan pada monitor laptop tidak kembali pada level maksimal.&lt;/p&gt;
+
+&lt;p&gt;Walaupun agak sedikit sepele, tetapi sangat menjengkelkan bila kita menggunakan laptop dalam kondisi cahaya ruangan yang redup. Tidak perlu panjang lebar lagi, mari kita simak:&lt;/p&gt;
+
+&lt;h2 id=&quot;1-pastikan-acpid-sudah-terinstal-jika-belum&quot;&gt;1. Pastikan &lt;em&gt;acpid&lt;/em&gt; sudah terinstal, jika belum:&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    ~# pacman &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; acpid
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-edit-pada-file-etcacpihandlersh&quot;&gt;2. Edit pada file &lt;em&gt;/etc/acpi/handler.sh&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Tambahkan script berikut:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 1 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/class/backlight/acpi_video0/brightness
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Sesuaikan level yang anda inginkan antara 0-10, disini saya memasukkan angka 1&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Pada bagian &lt;em&gt;ac_adapter, battery, button/lid&lt;/em&gt;, seperti gambar dibawah ini:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/acpid-1.jpg&quot; alt=&quot;acpid-1&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-aktifkan-service&quot;&gt;3. Aktifkan service&lt;/h2&gt;
+&lt;p&gt;Cara pengaktifkannya:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    ~# systemctl start acpid
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dan kemudian di- &lt;em&gt;enable&lt;/em&gt; -kan agar bisa di load saat booting.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    ~# systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;acpid
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-testing&quot;&gt;4. Testing&lt;/h2&gt;
+&lt;p&gt;Coba anda &lt;em&gt;suspend&lt;/em&gt; / &lt;em&gt;reboot&lt;/em&gt; laptop anda.&lt;/p&gt;
+
+&lt;p&gt;Saya harap bisa membantu. Demikianlah &lt;a href=&quot;post1.html&quot;&gt;Cara Mengatasi Brightness yang Ter-reset Setelah Suspend dan Booting pada Arch Linux”&lt;/a&gt;. Terima kasih telah menyimak :)&lt;/p&gt;</content><author><name>Khaerul Ilham</name></author><summary type="html">Bismillah,</summary></entry></feed>
