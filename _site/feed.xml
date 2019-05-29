@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2019-05-28T20:45:16+07:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">My Personal Blog</title><subtitle></subtitle><author><name>Khaerul Ilham</name></author><entry><title type="html">Mengatasi Systemd: ‘failed to remount’ Pada Proses Shutdown</title><link href="http://0.0.0.0:4000/tutorial/2018/06/06/post2.html" rel="alternate" type="text/html" title="Mengatasi Systemd: 'failed to remount' Pada Proses Shutdown" /><published>2018-06-06T11:17:32+07:00</published><updated>2018-06-06T11:17:32+07:00</updated><id>http://0.0.0.0:4000/tutorial/2018/06/06/post2</id><content type="html" xml:base="http://0.0.0.0:4000/tutorial/2018/06/06/post2.html">&lt;p&gt;Assalammu’ alaikum&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2019-05-29T23:42:01+07:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">My Personal Blog</title><subtitle></subtitle><author><name>Khaerul Ilham</name></author><entry><title type="html">Cara Menyambungkan Linux ke Wireless Access Point (WIFI) Secara Manual</title><link href="http://0.0.0.0:4000/tutorial/2019/05/29/post3.html" rel="alternate" type="text/html" title="Cara Menyambungkan Linux ke Wireless Access Point (WIFI) Secara Manual" /><published>2019-05-29T00:00:00+07:00</published><updated>2019-05-29T00:00:00+07:00</updated><id>http://0.0.0.0:4000/tutorial/2019/05/29/post3</id><content type="html" xml:base="http://0.0.0.0:4000/tutorial/2019/05/29/post3.html">&lt;p&gt;Bissmillah,&lt;/p&gt;
+
+&lt;p&gt;Oke, langsung saja ke materinya:&lt;/p&gt;
+&lt;h2 id=&quot;1-pastikan-sudah-terinstall-package-wpa_supplicant-wireless_tools-dan-dhcpcd&quot;&gt;1. Pastikan sudah terinstall package &lt;em&gt;wpa_supplicant&lt;/em&gt;, &lt;em&gt;wireless_tools&lt;/em&gt;, dan &lt;em&gt;dhcpcd&lt;/em&gt;&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# wpa_supplicant -v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# iwlist&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# dhcpcd -v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-menampilkan-network-interfaces-yang-tersedia&quot;&gt;2. Menampilkan Network Interfaces yang tersedia&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ifconfig&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;3-pilih-interface&quot;&gt;3. Pilih Interface&lt;/h2&gt;
+&lt;p&gt;Disini saya memilih interface wlan0&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# iwconfig wlan0 up&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-scanning-essid-pada-interface&quot;&gt;4. Scanning ESSID Pada Interface&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# iwlist wlan0 scanning&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;5-hubungkan-interface-dengan-essid&quot;&gt;5. Hubungkan Interface dengan ESSID&lt;/h2&gt;
+&lt;p&gt;Saya memilih ESSID ‘ooo’&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# iwconfig wlan0 essid ooo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Catatan: Jika Access Point yang anda pilih tidak memerlukan Password, maka abaikan step 6 dan 7 (langsung ke step 8)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;6-membuat-konfigurasi-wpa_supplicant&quot;&gt;6. Membuat Konfigurasi &lt;em&gt;wpa_supplicant&lt;/em&gt;&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# wpa_passphrase 'ooo' 'ini_passwordnya' &amp;gt; /etc/wpa_supplicant/wpa_supplicant.conf'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;7-menjalankan-wpa_supplicant&quot;&gt;7. Menjalankan &lt;em&gt;wpa_supplicant&lt;/em&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;a-menjalankannya-ecara-foreground&quot;&gt;a. Menjalankannya ecara foreground&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;b-secara-background&quot;&gt;b. Secara background&lt;/h3&gt;
+&lt;p&gt;Sebenarnya mudah, hanya dengan menambahkan opsi ‘-B’&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;8-konfigurasi-interface-dengan-ip-address-dynamic&quot;&gt;8. Konfigurasi Interface dengan IP Address Dynamic&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# dhcpcd -i wlan0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;9-test-koneksi&quot;&gt;9. Test Koneksi&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ping 8.8.8.8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Demikianlah tutorial &lt;em&gt;&lt;strong&gt;Cara Menyambungkan Linux ke Wireless Access Point (WIFI) Secara Manual&lt;/strong&gt;&lt;/em&gt; semoga bermanfaat.&lt;/p&gt;</content><author><name>Khaerul Ilham</name></author><summary type="html">Bissmillah,</summary></entry><entry><title type="html">Mengatasi Systemd: ‘failed to remount’ Pada Proses Shutdown</title><link href="http://0.0.0.0:4000/tutorial/2018/06/06/post2.html" rel="alternate" type="text/html" title="Mengatasi Systemd: 'failed to remount' Pada Proses Shutdown" /><published>2018-06-06T11:17:32+07:00</published><updated>2018-06-06T11:17:32+07:00</updated><id>http://0.0.0.0:4000/tutorial/2018/06/06/post2</id><content type="html" xml:base="http://0.0.0.0:4000/tutorial/2018/06/06/post2.html">&lt;p&gt;Assalammu’ alaikum&lt;/p&gt;
 
 &lt;p&gt;Bismillah…&lt;/p&gt;
 

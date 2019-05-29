@@ -41,7 +41,11 @@ ul, ol, dl, figure,
   margin-bottom: $spacing-unit / 2;
 }
 
-
+p{
+  // text-indent: 28px;
+  text-align: justify;
+  font-size: 14px;
+}
 
 /**
  * `main` element
